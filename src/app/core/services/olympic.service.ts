@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import {BehaviorSubject, Observable, of, switchMap} from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
 
 @Injectable({
@@ -8,9 +8,12 @@ import { catchError, tap } from 'rxjs/operators';
 })
 export class OlympicService {
   private olympicUrl = './assets/mock/olympic.json';
-  private olympics$ = new BehaviorSubject<any>(undefined);
+  private olympics$ = new BehaviorSubject<any>(null);
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) {
+    this.loadInitialData().subscribe();
+  }
+
 
   loadInitialData() {
     return this.http.get<any>(this.olympicUrl).pipe(
@@ -25,7 +28,16 @@ export class OlympicService {
     );
   }
 
-  getOlympics() {
-    return this.olympics$.asObservable();
+  getOlympics(): Observable<any> {
+    // Ensure data is loaded before returning observable
+    if (this.olympics$.value) {
+      //of is an operator of creation for observable in RXJS
+      return of(this.olympics$.value);
+    } else {
+      //if no data we're calling the initializer
+      return this.loadInitialData().pipe(
+        switchMap(() => this.olympics$.asObservable())
+      );
+    }
   }
 }
