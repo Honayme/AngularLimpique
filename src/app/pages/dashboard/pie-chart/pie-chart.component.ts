@@ -1,7 +1,8 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { CanvasJSAngularChartsModule } from '@canvasjs/angular-charts';
+import {MedalsService} from "../../../core/services/medals.service";
 
 
 @Component({
@@ -12,8 +13,31 @@ import { CanvasJSAngularChartsModule } from '@canvasjs/angular-charts';
   styleUrl: './pie-chart.component.scss'
 })
 
-export class PieChartComponent {
-  chartOptions = {
+export class PieChartComponent implements OnInit{
+  chartOptions: any;
+
+  constructor(private participationService: MedalsService) {}
+
+  ngOnInit(): void {
+    this.participationService.getParticipationData().subscribe(dataPoints => {
+      console.log(dataPoints);
+      this.chartOptions = {
+        animationEnabled: true,
+        title: {
+          text: "Medals per Country"
+        },
+        data: [{
+          type: "pie",
+          startAngle: -90,
+          indexLabel: "{name}: {y}",
+          yValueFormatString: "#,###.##'%'",
+          dataPoints: dataPoints
+        }]
+      };
+    });
+  }
+
+/*  chartOptions = {
     animationEnabled: true,
     title: {
       text: "Sales by Department"
@@ -30,5 +54,5 @@ export class PieChartComponent {
         { y: 43.3, name: "Furniture" }
       ]
     }]
-  }
+  }*/
 }
