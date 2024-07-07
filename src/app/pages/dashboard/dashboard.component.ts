@@ -1,7 +1,8 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, OnDestroy} from '@angular/core';
 import {StatisticsService} from "../../core/services/statistics.service";
 import {OlympicService} from "../../core/services/olympic.service";
 import {PieChartComponent} from "./pie-chart/pie-chart.component";
+import {Subscription} from "rxjs";
 
 @Component({
   selector: 'app-dashboard',
@@ -13,10 +14,12 @@ import {PieChartComponent} from "./pie-chart/pie-chart.component";
   styleUrl: './dashboard.component.scss'
 })
 
-export class DashboardComponent implements OnInit {
+export class DashboardComponent implements OnInit, OnDestroy {
   olympicsData: any;
   totalOlympics: number = 0;
   totalCountries: number = 0;
+  private subscriptions: Subscription[] = [];
+
 
   constructor(
     private statisticsService: StatisticsService,
@@ -24,18 +27,24 @@ export class DashboardComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.olympicService.getOlympics().subscribe(data => {
+    const olympicsSub = this.olympicService.getOlympics().subscribe(data => {
       this.olympicsData = data;
-      console.log('Olympic Data:', data); // Vérifiez les données dans la console
+      console.log('Olympic Data:', data);
     });
+    this.subscriptions.push(olympicsSub);
 
-
-    this.statisticsService.getTotalOlympics().subscribe(total => {
+    const totalOlympicsSub = this.statisticsService.getTotalOlympics().subscribe(total => {
       this.totalOlympics = total;
     });
+    this.subscriptions.push(totalOlympicsSub);
 
-    this.statisticsService.getTotalCountries().subscribe(total => {
+    const totalCountriesSub = this.statisticsService.getTotalCountries().subscribe(total => {
       this.totalCountries = total;
     });
+    this.subscriptions.push(totalCountriesSub);
+  }
+
+  ngOnDestroy(): void {
+    this.subscriptions.forEach(sub => sub.unsubscribe());
   }
 }

@@ -1,8 +1,9 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, OnDestroy} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { CanvasJSAngularChartsModule } from '@canvasjs/angular-charts';
 import {MedalsService} from "../../../core/services/medals.service";
+import {Subscription} from "rxjs";
 
 
 @Component({
@@ -13,13 +14,14 @@ import {MedalsService} from "../../../core/services/medals.service";
   styleUrl: './pie-chart.component.scss'
 })
 
-export class PieChartComponent implements OnInit{
+export class PieChartComponent implements OnInit, OnDestroy{
   chartOptions: any;
+  private subscription: Subscription | undefined;
 
   constructor(private participationService: MedalsService) {}
 
   ngOnInit(): void {
-    this.participationService.getParticipationData().subscribe(dataPoints => {
+    this.subscription = this.participationService.getParticipationData().subscribe(dataPoints => {
       console.log(dataPoints);
       this.chartOptions = {
         animationEnabled: true,
@@ -35,6 +37,12 @@ export class PieChartComponent implements OnInit{
         }]
       };
     });
+  }
+
+  ngOnDestroy(): void {
+    if (this.subscription) {
+      this.subscription.unsubscribe();
+    }
   }
 
 /*  chartOptions = {
