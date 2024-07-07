@@ -29,7 +29,7 @@ export class PieChartComponent implements OnInit{
         data: [{
           type: "pie",
           startAngle: -90,
-          indexLabel: "{name}: {y}",
+          indexLabel: " {name}",
           yValueFormatString: "#,###.##'%'",
           dataPoints: dataPoints
         }]
