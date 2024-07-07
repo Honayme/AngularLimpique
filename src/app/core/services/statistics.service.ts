@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { OlympicService } from './olympic.service';
+import {Olympic} from "../models/Olympic";
+import {Participation} from "../models/Participation";
 
 @Injectable({
   providedIn: 'root',
@@ -29,6 +31,33 @@ export class StatisticsService {
   getTotalCountries(): Observable<number> {
     return this.olympicService.getOlympics().pipe(
       map((data) => data.length)
+    );
+  }
+
+  // Récupérer le nombre de participations par pays
+  getCountryParticipations(): Observable<{ country: string, participations: number }[]> {
+    return this.olympicService.getOlympics().pipe(
+      map((data: Olympic[]) => {
+        return data.map(country => ({
+          country: country.country,
+          participations: country.participations.length
+        }));
+      })
+    );
+  }
+
+  // Récupérer le nombre total d'athlètes par pays
+  getCountryTotalAthletes(): Observable<{ country: string, athletes: number }[]> {
+    return this.olympicService.getOlympics().pipe(
+      map((data: Olympic[]) => {
+        return data.map(country => {
+          const totalAthletes = country.participations.reduce((sum: number, participation: Participation) => sum + participation.athleteCount, 0);
+          return {
+            country: country.country,
+            athletes: totalAthletes
+          };
+        });
+      })
     );
   }
 }
