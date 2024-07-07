@@ -1,11 +1,14 @@
 import {Component, OnInit} from '@angular/core';
 import {StatisticsService} from "../../core/services/statistics.service";
 import {OlympicService} from "../../core/services/olympic.service";
+import {PieChartComponent} from "./pie-chart/pie-chart.component";
 
 @Component({
   selector: 'app-dashboard',
   standalone: true,
-  imports: [],
+  imports: [
+    PieChartComponent,
+  ],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.scss'
 })
