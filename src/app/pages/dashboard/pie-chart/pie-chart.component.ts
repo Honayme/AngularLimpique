@@ -4,6 +4,8 @@ import { RouterOutlet } from '@angular/router';
 import { CanvasJSAngularChartsModule } from '@canvasjs/angular-charts';
 import { MedalsService } from '../../../core/services/medals.service';
 import { Subscription } from 'rxjs';
+import {StatisticsService} from "../../../core/services/statistics.service";
+
 
 @Component({
   selector: 'app-pie-chart',
@@ -17,14 +19,17 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./pie-chart.component.scss'] // Corrected typo from styleUrl to styleUrls
 })
 export class PieChartComponent implements OnInit, OnDestroy {
+  chart: any;
   chartOptions: any;
   private subscription: Subscription | undefined;
-
-  constructor(private medalsService: MedalsService) {}
+  protected isDrilldown = false;
+  isButtonVisible = false;
+  constructor(
+    private medalsService: MedalsService,
+    private statisticsService: StatisticsService) {}
 
   ngOnInit(): void {
     this.subscription = this.medalsService.getParticipationData().subscribe(dataPoints => {
-      console.log(dataPoints);
       this.chartOptions = {
         animationEnabled: true,
         title: {
@@ -33,11 +38,13 @@ export class PieChartComponent implements OnInit, OnDestroy {
         data: [{
           type: "pie",
           startAngle: -90,
-          indexLabel: "{name}",
-          yValueFormatString: "#,###.##'%'",
-          dataPoints: dataPoints
+          indexLabel: "{name}: {y}",
+          yValueFormatString: "#,###",
+          dataPoints: dataPoints,
+          click: this.drilldownHandler.bind(this)
         }]
       };
+      this.renderChart(this.chartOptions);
     });
   }
 
@@ -46,4 +53,39 @@ export class PieChartComponent implements OnInit, OnDestroy {
       this.subscription.unsubscribe();
     }
   }
+
+  getChartInstance(chart: object) {
+    this.chart = chart;
+  }
+
+  renderChart(options: any) {
+    this.chart.options = options;
+    this.chart.render();
+  }
+
+  drilldownHandler(e: any) {
+    if (!this.isDrilldown) {
+      this.isDrilldown = true;
+      const country = e.dataPoint.name;
+      this.subscription = this.statisticsService.getCountryParticipationDetails(country).subscribe(details => {
+        this.chartOptions = {
+          animationEnabled: true,
+          title: {
+            text: `Medals per Year for ${country}`
+          },
+          data: [{
+            type: "column",
+            dataPoints: details
+          }]
+        };
+        this.renderChart(this.chartOptions);
+      });
+    }
+  }
+
+  handleBackClick() {
+    this.isDrilldown = false;
+    this.renderChart(this.chartOptions);
+  }
+
 }

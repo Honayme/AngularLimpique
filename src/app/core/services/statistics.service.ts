@@ -35,13 +35,14 @@ export class StatisticsService {
   }
 
   // Récupérer le nombre de participations par pays
-  getCountryParticipations(): Observable<{ country: string, participations: number }[]> {
+  getCountryParticipationDetails(countryName: string): Observable<{ label: string, y: number }[]> {
     return this.olympicService.getOlympics().pipe(
       map((data: Olympic[]) => {
-        return data.map(country => ({
-          country: country.country,
-          participations: country.participations.length
-        }));
+        const country = data.find(c => c.country === countryName);
+        return country ? country.participations.map((participation: Participation) => ({
+          label: participation.year.toString(),
+          y: participation.medalsCount
+        })) : [];
       })
     );
   }
