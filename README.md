@@ -1,4 +1,4 @@
-# Angulimpique
+# Angulympique
 
 ![Node.js Badge](https://img.shields.io/badge/Node.js-v16.x+-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)
 ![Angular CLI Badge](https://img.shields.io/badge/Angular%20CLI-v18.0.3-red?style=for-the-badge&logo=angular&logoColor=white)

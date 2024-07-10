@@ -32,9 +32,6 @@ export class PieChartComponent implements OnInit, OnDestroy {
     this.subscription = this.medalsService.getParticipationData().subscribe(dataPoints => {
       this.chartOptions = {
         animationEnabled: true,
-        title: {
-          text: "Medals per Country"
-        },
         data: [{
           type: "pie",
           startAngle: -90,

@@ -3,6 +3,7 @@ import {StatisticsService} from "../../core/services/statistics.service";
 import {OlympicService} from "../../core/services/olympic.service";
 import {PieChartComponent} from "./pie-chart/pie-chart.component";
 import {Subscription} from "rxjs";
+import {Olympic} from "../../core/models/Olympic";
 
 @Component({
   selector: 'app-dashboard',
@@ -15,7 +16,7 @@ import {Subscription} from "rxjs";
 })
 
 export class DashboardComponent implements OnInit, OnDestroy {
-  olympicsData: any;
+  olympicsData: Olympic | undefined;
   totalOlympics: number = 0;
   totalCountries: number = 0;
   private subscriptions: Subscription[] = [];
