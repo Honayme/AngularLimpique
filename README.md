@@ -1,29 +1,84 @@
-# OlympicGamesStarter
+# Angulimpique
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.0.3.
+![Node.js Badge](https://img.shields.io/badge/Node.js-v16.x+-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)
+![Angular CLI Badge](https://img.shields.io/badge/Angular%20CLI-v18.0.3-red?style=for-the-badge&logo=angular&logoColor=white)
+![Angular Badge](https://img.shields.io/badge/Angular-v18.0.3-red?style=for-the-badge&logo=angular&logoColor=white)
+![TypeScript Badge](https://img.shields.io/badge/TypeScript-v5.4.2-blue?style=for-the-badge&logo=typescript&logoColor=white)
+![RxJS Badge](https://img.shields.io/badge/RxJS-v7.8.0-9900FF?style=for-the-badge&logo=reactivex&logoColor=white)
 
-Don't forget to install your node_modules before starting (`npm install`).
+## Description
 
-## Development server
+This project is an Angular application for visualizing data related to the Olympic Games.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Getting Started
 
-## Build
+### Prerequisites
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+- Angular (v18.0.3)
+- Node.js (v16.x or later)
+- Angular CLI (v18.0.3)
 
-## Where to start
+### Installation
 
-As you can see, an architecture has already been defined for the project. It is just a suggestion, you can choose to use your own. The predefined architecture includes (in addition to the default angular architecture) the following:
+1. Clone the repository:
+   ```sh
+   git clone https://github.com/Honayme/AngularLimpique.git
+   ```
+2. Navigate to the project directory:
+   ```sh
+   cd olympic-games-starter
+   ```
+3. Install dependencies:
+   ```sh
+   npm install
+   ```
 
-- `components` folder: contains every reusable components
-- `pages` folder: contains components used for routing
-- `core` folder: contains the business logic (`services` and `models` folders)
+### Running the Application
 
-I suggest you to start by understanding this starter code. Pay an extra attention to the `app-routing.module.ts` and the `olympic.service.ts`.
+To start the development server:
+```sh
+npm start
+```
 
-Once mastered, you should continue by creating the typescript interfaces inside the `models` folder. As you can see I already created two files corresponding to the data included inside the `olympic.json`. With your interfaces, improve the code by replacing every `any` by the corresponding interface.
+The application will be accessible at `http://localhost:4200`.
 
-You're now ready to implement the requested features.
+## Documentation
 
-Good luck!
+### Generating Documentation with Compodoc
+
+This project uses [Compodoc](https://compodoc.app/) to generate documentation.
+
+1. To generate and serve the documentation, run:
+   ```sh
+   npm run compodoc
+   ```
+
+2. Access the documentation at:
+   ```
+   http://localhost:4000/documentation
+   ```
+
+### Scripts
+
+- `ng`: Runs Angular CLI commands
+- `start`: Starts the development server
+- `build`: Builds the project
+- `watch`: Builds the project in watch mode
+- `test`: Runs tests
+- `compodoc`: Generates and serves the documentation using Compodoc
+
+## Contributing
+
+If you wish to contribute, please fork the repository and submit a pull request.
+
+## License
+
+This project is licensed under the MIT License.
+```
+
+### Notes
+
+- Assurez-vous que `compodoc.json` est bien créé à la racine de votre projet pour que les configurations personnalisées soient prises en compte.
+- Le script `compodoc` dans votre `package.json` est déjà correctement configuré pour démarrer le serveur de documentation sur le port 4000 et générer les fichiers de documentation dans le répertoire `documentation`.
+
+Avec ces instructions, vous devriez pouvoir générer automatiquement une documentation technique pour votre projet Angular et la rendre accessible via une URL spécifique.
