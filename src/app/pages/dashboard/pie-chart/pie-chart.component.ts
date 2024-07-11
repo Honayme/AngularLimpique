@@ -8,6 +8,7 @@ import {StatisticsService} from "../../../core/services/statistics.service";
 import {CanvasChart} from "../../../core/models/Charts/CanvasChart";
 import {ChartOptions} from "../../../core/models/Charts/ChartOptions";
 import {isCanvasChart} from "../../../core/models/Charts/typeGuards";
+import {SharedService} from "../../../core/services/shared.service";
 
 
 @Component({
@@ -19,7 +20,7 @@ import {isCanvasChart} from "../../../core/models/Charts/typeGuards";
     CanvasJSAngularChartsModule
   ],
   templateUrl: './pie-chart.component.html',
-  styleUrls: ['./pie-chart.component.scss'] // Corrected typo from styleUrl to styleUrls
+  styleUrls: ['./pie-chart.component.scss']
 })
 export class PieChartComponent implements OnInit, OnDestroy {
   chart!: CanvasChart;
@@ -30,7 +31,8 @@ export class PieChartComponent implements OnInit, OnDestroy {
 
   constructor(
     private medalsService: MedalsService,
-    private statisticsService: StatisticsService) {
+    private statisticsService: StatisticsService,
+    private sharedService: SharedService) {
   }
 
   ngOnInit(): void {
@@ -44,7 +46,7 @@ export class PieChartComponent implements OnInit, OnDestroy {
           indexLabel: "{name}: {y}",
           yValueFormatString: "#,###",
           dataPoints: dataPoints,
-          click: this.drilldownHandler.bind(this)
+          click: this.drillDownHandler.bind(this)
         }]
       };
       this.chartOptions = { ...this.initialChartOptions }; // Make a copy of the initial options
@@ -71,16 +73,20 @@ export class PieChartComponent implements OnInit, OnDestroy {
     this.chart.render();
   }
 
-  drilldownHandler(e: any) {
+  drillDownHandler(e: any) {
     console.log(e);
     if (!this.isDrillDown) {
       this.isDrillDown = true;
       const country = e.dataPoint.name;
+
+      this.sharedService.changeDescription(`Detailed stats for ${country}`);
+
       this.subscription = this.statisticsService.getCountryParticipationDetails(country).subscribe(details => {
         this.chartOptions = {
           animationEnabled: true,
+          explodeOnClick: false,
           title: {
-            text: `Medals per Year for ${country}`
+            text: `${country}`
           },
           data: [{
             type: "column",
@@ -92,9 +98,13 @@ export class PieChartComponent implements OnInit, OnDestroy {
     }
   }
 
-  handleBackClick(event: Event) {
+  /**
+   * @description Get the previous pie chart infos as the descriptions and render it again.
+   */
+  handleBackClick() {
     this.isDrillDown = false;
     this.chartOptions = { ...this.initialChartOptions }; // Reset to initial options
+    this.sharedService.resetDescription();
     this.renderChart(this.chartOptions);
   }
 

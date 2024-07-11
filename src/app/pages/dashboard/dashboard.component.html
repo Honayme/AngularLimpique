@@ -1,5 +1,6 @@
 <div class="chart-container">
-  <h1>Medals per Country</h1>
+  <h1 *ngIf="!countryName">Medals per Country</h1>
+  <h1 *ngIf="countryName">{{ countryName }}</h1>
   <div class="chart-subtitles">
     <div class="subtitle-container">
       <span class="subtitle">Number of JOs</span>
