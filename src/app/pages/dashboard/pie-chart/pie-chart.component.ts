@@ -1,10 +1,13 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
-import { CanvasJSAngularChartsModule } from '@canvasjs/angular-charts';
+import {CanvasJSAngularChartsModule} from '@canvasjs/angular-charts';
 import { MedalsService } from '../../../core/services/medals.service';
 import { Subscription } from 'rxjs';
 import {StatisticsService} from "../../../core/services/statistics.service";
+import {CanvasChart} from "../../../core/models/Charts/CanvasChart";
+import {ChartOptions} from "../../../core/models/Charts/ChartOptions";
+import {isCanvasChart} from "../../../core/models/Charts/typeGuards";
 
 
 @Component({
@@ -19,19 +22,23 @@ import {StatisticsService} from "../../../core/services/statistics.service";
   styleUrls: ['./pie-chart.component.scss'] // Corrected typo from styleUrl to styleUrls
 })
 export class PieChartComponent implements OnInit, OnDestroy {
-  chart: any;
-  chartOptions: any;
+  chart!: CanvasChart;
+  chartOptions!: ChartOptions;
+  initialChartOptions!: ChartOptions;
   private subscription: Subscription | undefined;
-  protected isDrilldown = false;
-  isButtonVisible = false;
+  protected isDrilldown: boolean = false;
+  isButtonVisible: boolean = false;
+
   constructor(
     private medalsService: MedalsService,
-    private statisticsService: StatisticsService) {}
+    private statisticsService: StatisticsService) {
+  }
 
   ngOnInit(): void {
     this.subscription = this.medalsService.getParticipationData().subscribe(dataPoints => {
-      this.chartOptions = {
+      this.initialChartOptions = {
         animationEnabled: true,
+        explodeOnClick: false,
         data: [{
           type: "pie",
           startAngle: -90,
@@ -41,6 +48,7 @@ export class PieChartComponent implements OnInit, OnDestroy {
           click: this.drilldownHandler.bind(this)
         }]
       };
+      this.chartOptions = { ...this.initialChartOptions }; // Make a copy of the initial options
       this.renderChart(this.chartOptions);
     });
   }
@@ -51,8 +59,12 @@ export class PieChartComponent implements OnInit, OnDestroy {
     }
   }
 
-  getChartInstance(chart: object) {
-    this.chart = chart;
+  getChartInstance(chart: unknown) {
+    if (isCanvasChart(chart)) {
+      this.chart = chart;
+    } else {
+      console.error('Invalid chart instance:', chart);
+    }
   }
 
   renderChart(options: any) {
@@ -61,6 +73,7 @@ export class PieChartComponent implements OnInit, OnDestroy {
   }
 
   drilldownHandler(e: any) {
+    console.log(e);
     if (!this.isDrilldown) {
       this.isDrilldown = true;
       const country = e.dataPoint.name;
@@ -80,8 +93,9 @@ export class PieChartComponent implements OnInit, OnDestroy {
     }
   }
 
-  handleBackClick() {
+  handleBackClick(event: Event) {
     this.isDrilldown = false;
+    this.chartOptions = { ...this.initialChartOptions }; // Reset to initial options
     this.renderChart(this.chartOptions);
   }
 
