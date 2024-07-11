@@ -25,9 +25,8 @@ export class PieChartComponent implements OnInit, OnDestroy {
   chart!: CanvasChart;
   chartOptions!: ChartOptions;
   initialChartOptions!: ChartOptions;
+  protected isDrillDown: boolean = false;
   private subscription: Subscription | undefined;
-  protected isDrilldown: boolean = false;
-  isButtonVisible: boolean = false;
 
   constructor(
     private medalsService: MedalsService,
@@ -37,7 +36,7 @@ export class PieChartComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.subscription = this.medalsService.getParticipationData().subscribe(dataPoints => {
       this.initialChartOptions = {
-        animationEnabled: true,
+        animationEnabled: false,
         explodeOnClick: false,
         data: [{
           type: "pie",
@@ -74,8 +73,8 @@ export class PieChartComponent implements OnInit, OnDestroy {
 
   drilldownHandler(e: any) {
     console.log(e);
-    if (!this.isDrilldown) {
-      this.isDrilldown = true;
+    if (!this.isDrillDown) {
+      this.isDrillDown = true;
       const country = e.dataPoint.name;
       this.subscription = this.statisticsService.getCountryParticipationDetails(country).subscribe(details => {
         this.chartOptions = {
@@ -94,7 +93,7 @@ export class PieChartComponent implements OnInit, OnDestroy {
   }
 
   handleBackClick(event: Event) {
-    this.isDrilldown = false;
+    this.isDrillDown = false;
     this.chartOptions = { ...this.initialChartOptions }; // Reset to initial options
     this.renderChart(this.chartOptions);
   }
