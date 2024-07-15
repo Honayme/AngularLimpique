@@ -26,6 +26,7 @@ export class PieChartComponent implements OnInit, OnDestroy {
   chart!: CanvasChart;
   chartOptions!: ChartOptions;
   initialChartOptions!: ChartOptions;
+  totalAthletes: number | undefined;
   protected isDrillDown: boolean = false;
   private subscription: Subscription | undefined;
 
@@ -73,27 +74,38 @@ export class PieChartComponent implements OnInit, OnDestroy {
     this.chart.render();
   }
 
+  /**
+   * @description
+   * @param e
+   */
   drillDownHandler(e: any) {
     console.log(e);
     if (!this.isDrillDown) {
       this.isDrillDown = true;
       const country = e.dataPoint.name;
-
-      this.sharedService.changeDescription(`Detailed stats for ${country}`);
+      const medals = e.dataPoint.y;
+      this.sharedService.changeDescription(`${country}`);
+      this.sharedService.getMedalsNumber(`${medals}`);
+      // this.sharedService.getAthletesNumber();
 
       this.subscription = this.statisticsService.getCountryParticipationDetails(country).subscribe(details => {
         this.chartOptions = {
           animationEnabled: true,
           explodeOnClick: false,
-          title: {
-            text: `${country}`
-          },
           data: [{
             type: "column",
             dataPoints: details
           }]
         };
         this.renderChart(this.chartOptions);
+
+        this.statisticsService.getCountryTotalAthletes().subscribe(athleteData => {
+          const countryAthletes = athleteData.find(item => item.country === country);
+          if (countryAthletes) {
+            this.sharedService.getAthletesNumber(`${countryAthletes.athletes}`); // Modification ici
+          }
+        });
+
       });
     }
   }

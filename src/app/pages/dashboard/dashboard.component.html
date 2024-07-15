@@ -10,6 +10,10 @@
       <span class="subtitle">Number of countries</span>
       <strong>{{ totalCountries }}</strong>
     </div>
+    <div *ngIf="athletesNumber" class="subtitle-container"> <!-- Modification ici -->
+      <span class="subtitle">Number of athletes</span>
+      <strong>{{ athletesNumber }}</strong>
+    </div>
   </div>
 </div>
 <app-pie-chart></app-pie-chart>

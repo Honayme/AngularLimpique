@@ -5,14 +5,29 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root'
 })
 export class SharedService {
-  private descriptionSource = new BehaviorSubject<string>('');
-  currentDescription = this.descriptionSource.asObservable();
+  private descriptionSource : BehaviorSubject<string> = new BehaviorSubject<string>('');
+  private medalsNumberSource: BehaviorSubject<string> = new BehaviorSubject<string>('');
+  private athletesNumberSource: BehaviorSubject<string> = new BehaviorSubject<string>('');
 
-  changeDescription(description: string) {
+  currentDescription = this.descriptionSource.asObservable();
+  currentMedalsNumber = this.medalsNumberSource.asObservable();
+  currentAthletesNumber = this.athletesNumberSource.asObservable();
+
+  changeDescription(description: string): void {
     this.descriptionSource.next(description);
   }
 
+  getMedalsNumber(medalsNumber: string): void {
+    this.medalsNumberSource.next(medalsNumber);
+  }
+
+  getAthletesNumber(athletesNumber: string): void {
+    this.athletesNumberSource.next(athletesNumber);
+  }
+
   resetDescription() {
-    this.descriptionSource.next(''); // Réinitialiser la description
+    this.descriptionSource.next('');
+    this.medalsNumberSource.next('');
+    this.athletesNumberSource.next('');
   }
 }

@@ -43,3 +43,14 @@
     color: #000;
   }
 }
+
+@media (max-width: 520px) {
+  .chart-subtitles {
+    flex-direction: column;
+  }
+
+  .subtitle-container {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+}

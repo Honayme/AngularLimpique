@@ -24,7 +24,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
   totalCountries: number = 0;
   countryName: string = "";
   medalsNumber: number = 0;
-  athletesNumber: number = 0;
+  athletesNumber: string = '';
   private subscriptions: Subscription[] = [];
 
 
@@ -56,6 +56,12 @@ export class DashboardComponent implements OnInit, OnDestroy {
       this.countryName = countryName;
     });
     this.subscriptions.push(country);
+
+    const athletes = this.sharedService.currentAthletesNumber.subscribe(athletesNumber => {
+      console.log(athletesNumber);
+      this.athletesNumber = athletesNumber; // Modification ici
+    });
+    this.subscriptions.push(athletes);
   }
 
   ngOnDestroy(): void {
