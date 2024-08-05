@@ -7,6 +7,14 @@ export interface ChartDataPoint {
 export interface ChartOptions {
   animationEnabled?: boolean;
   explodeOnClick?: boolean;
+  toolTip?: {
+    content?: string,
+    backgroundColor?: string
+    fontColor?: string
+    cornerRadius?: number
+    fontWeight?: string
+    enabled?: boolean
+  };
   title?: {
     text: string;
   };

@@ -41,6 +41,13 @@ export class PieChartComponent implements OnInit, OnDestroy {
       this.initialChartOptions = {
         animationEnabled: false,
         explodeOnClick: false,
+        toolTip:{
+          content: "{name} 🏅 {y}",
+          backgroundColor : "#04838F",
+          fontColor : "#FFF",
+          cornerRadius: 5,
+          fontWeight: "light",
+        },
         data: [{
           type: "pie",
           startAngle: -90,
@@ -92,6 +99,9 @@ export class PieChartComponent implements OnInit, OnDestroy {
         this.chartOptions = {
           animationEnabled: true,
           explodeOnClick: false,
+          toolTip:{
+            enabled: false
+          },
           data: [{
             type: "column",
             dataPoints: details
