@@ -82,25 +82,59 @@
                <div class="content getting-started">
                    <div class="content-data">
 
-<h1>OlympicGamesStarter</h1>
-<p>This project was generated with <a href="https://github.com/angular/angular-cli">Angular CLI</a> version 18.0.3.</p>
-<p>Don&#39;t forget to install your node_modules before starting (<code>npm install</code>).</p>
-<h2>Development server</h2>
-<p>Run <code>ng serve</code> for a dev server. Navigate to <code>http://localhost:4200/</code>. The application will automatically reload if you change any of the source files.</p>
-<h2>Build</h2>
-<p>Run <code>ng build</code> to build the project. The build artifacts will be stored in the <code>dist/</code> directory.</p>
-<h2>Where to start</h2>
-<p>As you can see, an architecture has already been defined for the project. It is just a suggestion, you can choose to use your own. The predefined architecture includes (in addition to the default angular architecture) the following:</p>
+<h1>Angulympique</h1>
+<p><img src="https://img.shields.io/badge/Node.js-v16.x+-339933?style=for-the-badge&logo=nodedotjs&logoColor=white" alt="Node.js Badge" class="img-responsive">
+<img src="https://img.shields.io/badge/Angular%20CLI-v18.0.3-red?style=for-the-badge&logo=angular&logoColor=white" alt="Angular CLI Badge" class="img-responsive">
+<img src="https://img.shields.io/badge/Angular-v18.0.3-red?style=for-the-badge&logo=angular&logoColor=white" alt="Angular Badge" class="img-responsive">
+<img src="https://img.shields.io/badge/TypeScript-v5.4.2-blue?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript Badge" class="img-responsive">
+<img src="https://img.shields.io/badge/RxJS-v7.8.0-9900FF?style=for-the-badge&logo=reactivex&logoColor=white" alt="RxJS Badge" class="img-responsive"></p>
+<h2>Description</h2>
+<p>This project is an Angular application for visualizing data related to the Olympic Games.</p>
+<h2>Getting Started</h2>
+<h3>Prerequisites</h3>
 <ul>
-<li><code>components</code> folder: contains every reusable components</li>
-<li><code>pages</code> folder: contains components used for routing</li>
-<li><code>core</code> folder: contains the business logic (<code>services</code> and <code>models</code> folders)</li>
+<li>Angular (v18.0.3)</li>
+<li>Node.js (v16.x or later)</li>
+<li>Angular CLI (v18.0.3)</li>
 </ul>
-<p>I suggest you to start by understanding this starter code. Pay an extra attention to the <code>app-routing.module.ts</code> and the <code>olympic.service.ts</code>.</p>
-<p>Once mastered, you should continue by creating the typescript interfaces inside the <code>models</code> folder. As you can see I already created two files corresponding to the data included inside the <code>olympic.json</code>. With your interfaces, improve the code by replacing every <code>any</code> by the corresponding interface.</p>
-<p>You&#39;re now ready to implement the requested features.</p>
-<p>Good luck!</p>
+<h3>Installation</h3>
+<ol>
+<li>Clone the repository:<b>Example :</b><div><pre class="line-numbers"><code class="language-sh">git clone https://github.com/Honayme/AngularLimpique.git</code></pre></div></li>
+<li>Navigate to the project directory:<b>Example :</b><div><pre class="line-numbers"><code class="language-sh">cd olympic-games-starter</code></pre></div></li>
+<li>Install dependencies:<b>Example :</b><div><pre class="line-numbers"><code class="language-sh">npm install</code></pre></div></li>
+</ol>
+<h3>Running the Application</h3>
+<p>To start the development server:</p>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-sh">npm start</code></pre></div><p>The application will be accessible at <code>http://localhost:4200</code>.</p>
+<h2>Documentation</h2>
+<h3>Generating Documentation with Compodoc</h3>
+<p>This project uses <a href="https://compodoc.app/">Compodoc</a> to generate documentation.</p>
+<ol>
+<li><p>To generate and serve the documentation, run:</p>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-sh">npm run compodoc</code></pre></div></li>
+<li><p>Access the documentation at:</p>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-none">http://localhost:4000/documentation</code></pre></div></li>
+</ol>
+<h3>Scripts</h3>
+<ul>
+<li><code>ng</code>: Runs Angular CLI commands</li>
+<li><code>start</code>: Starts the development server</li>
+<li><code>build</code>: Builds the project</li>
+<li><code>watch</code>: Builds the project in watch mode</li>
+<li><code>test</code>: Runs tests</li>
+<li><code>compodoc</code>: Generates and serves the documentation using Compodoc</li>
+</ul>
+<h2>Contributing</h2>
+<p>If you wish to contribute, please fork the repository and submit a pull request.</p>
+<h2>License</h2>
+<p>This project is licensed under the MIT License.</p>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-none">
+### Notes
 
+- Assurez-vous que `compodoc.json` est bien créé à la racine de votre projet pour que les configurations personnalisées soient prises en compte.
+- Le script `compodoc` dans votre `package.json` est déjà correctement configuré pour démarrer le serveur de documentation sur le port 4000 et générer les fichiers de documentation dans le répertoire `documentation`.
+
+Avec ces instructions, vous devriez pouvoir générer automatiquement une documentation technique pour votre projet Angular et la rendre accessible via une URL spécifique.</code></pre></div>
 
 
 

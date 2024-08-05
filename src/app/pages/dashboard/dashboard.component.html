@@ -3,12 +3,17 @@
   <h1 *ngIf="countryName">{{ countryName }}</h1>
   <div class="chart-subtitles">
     <div class="subtitle-container">
-      <span class="subtitle">Number of JOs</span>
+      <span *ngIf="!countryName" class="subtitle">Number of JOs</span>
+      <span *ngIf="countryName" class="subtitle">Number of entries</span>
       <strong>{{ totalOlympics }}</strong>
     </div>
-    <div class="subtitle-container">
+    <div *ngIf="!medalsNumber" class="subtitle-container">
       <span class="subtitle">Number of countries</span>
       <strong>{{ totalCountries }}</strong>
+    </div>
+    <div *ngIf="medalsNumber" class="subtitle-container">
+      <span class="subtitle">Number of medals</span>
+      <strong>{{ medalsNumber }}</strong>
     </div>
     <div *ngIf="athletesNumber" class="subtitle-container"> <!-- Modification ici -->
       <span class="subtitle">Number of athletes</span>

@@ -1,4 +1,4 @@
-<div class="">
-  <canvasjs-chart [options]="chartOptions" (chartInstance)="getChartInstance($event)" [styles]="{width: '100%', height: '360px'}"></canvasjs-chart>
+<div>
+  <canvasjs-chart [options]="chartOptions" (chartInstance)="getChartInstance($event)" [styles]="{width: '60%', height: '360px', margin: 'auto'}"></canvasjs-chart>
   <button [ngClass]="'backButton'" *ngIf="isDrillDown" (click)="handleBackClick()">Back</button>
 </div>

@@ -23,7 +23,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
   totalOlympics: number = 0;
   totalCountries: number = 0;
   countryName: string = "";
-  medalsNumber: number = 0;
+  medalsNumber: string = "";
   athletesNumber: string = '';
   private subscriptions: Subscription[] = [];
 
@@ -62,6 +62,12 @@ export class DashboardComponent implements OnInit, OnDestroy {
       this.athletesNumber = athletesNumber; // Modification ici
     });
     this.subscriptions.push(athletes);
+
+    const medals = this.sharedService.currentMedalsNumber.subscribe(medalsNumber => {
+      console.log(medalsNumber);
+      this.medalsNumber = medalsNumber; // Ajout ici
+    });
+    this.subscriptions.push(medals);
   }
 
   ngOnDestroy(): void {

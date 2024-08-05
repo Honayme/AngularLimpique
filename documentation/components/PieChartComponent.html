@@ -212,15 +212,18 @@
                                 <a href="#chartOptions" >chartOptions</a>
                             </li>
                             <li>
-                                <a href="#isButtonVisible" >isButtonVisible</a>
+                                <a href="#initialChartOptions" >initialChartOptions</a>
                             </li>
                             <li>
                                     <span class="modifier">Protected</span>
-                                <a href="#isDrilldown" >isDrilldown</a>
+                                <a href="#isDrillDown" >isDrillDown</a>
                             </li>
                             <li>
                                     <span class="modifier">Private</span>
                                 <a href="#subscription" >subscription</a>
+                            </li>
+                            <li>
+                                <a href="#totalAthletes" >totalAthletes</a>
                             </li>
                         </ul>
                     </td>
@@ -235,7 +238,7 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                <a href="#drilldownHandler" >drilldownHandler</a>
+                                <a href="#drillDownHandler" >drillDownHandler</a>
                             </li>
                             <li>
                                 <a href="#getChartInstance" >getChartInstance</a>
@@ -270,12 +273,12 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(medalsService: <a href="../injectables/MedalsService.html" target="_self">MedalsService</a>, statisticsService: <a href="../injectables/StatisticsService.html" target="_self">StatisticsService</a>)</code>
+<code>constructor(medalsService: <a href="../injectables/MedalsService.html" target="_self">MedalsService</a>, statisticsService: <a href="../injectables/StatisticsService.html" target="_self">StatisticsService</a>, sharedService: <a href="../injectables/SharedService.html" target="_self">SharedService</a>)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">src/app/pages/dashboard/pie-chart/pie-chart.component.ts:26</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">src/app/pages/dashboard/pie-chart/pie-chart.component.ts:31</a></div>
                             </td>
                         </tr>
 
@@ -316,6 +319,18 @@
                                                     </td>
                                                     
                                                 </tr>
+                                                <tr>
+                                                        <td>sharedService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/SharedService.html" target="_self" >SharedService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
                                         </tbody>
                                     </table>
                             </div>
@@ -338,24 +353,24 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="drilldownHandler"></a>
+                    <a name="drillDownHandler"></a>
                     <span class="name">
-                        <span ><b>drilldownHandler</b></span>
-                        <a href="#drilldownHandler"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>drillDownHandler</b></span>
+                        <a href="#drillDownHandler"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>drilldownHandler(e: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+<code>drillDownHandler(e: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
                 </td>
             </tr>
 
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="66"
-                                    class="link-to-prism">src/app/pages/dashboard/pie-chart/pie-chart.component.ts:66</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="81"
+                                    class="link-to-prism">src/app/pages/dashboard/pie-chart/pie-chart.component.ts:81</a></div>
                         </td>
                     </tr>
 
@@ -414,15 +429,15 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>getChartInstance(chart: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank">object</a>)</code>
+<code>getChartInstance(chart)</code>
                 </td>
             </tr>
 
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="57"
-                                    class="link-to-prism">src/app/pages/dashboard/pie-chart/pie-chart.component.ts:57</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="64"
+                                    class="link-to-prism">src/app/pages/dashboard/pie-chart/pie-chart.component.ts:64</a></div>
                         </td>
                     </tr>
 
@@ -437,16 +452,12 @@
                                     <thead>
                                         <tr>
                                             <td>Name</td>
-                                                <td>Type</td>
                                             <td>Optional</td>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr>
                                                 <td>chart</td>
-                                            <td>
-                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
-                                            </td>
 
                                             <td>
                                                     No
@@ -488,8 +499,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="86"
-                                    class="link-to-prism">src/app/pages/dashboard/pie-chart/pie-chart.component.ts:86</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="116"
+                                    class="link-to-prism">src/app/pages/dashboard/pie-chart/pie-chart.component.ts:116</a></div>
                         </td>
                     </tr>
 
@@ -525,8 +536,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="51"
-                                    class="link-to-prism">src/app/pages/dashboard/pie-chart/pie-chart.component.ts:51</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="58"
+                                    class="link-to-prism">src/app/pages/dashboard/pie-chart/pie-chart.component.ts:58</a></div>
                         </td>
                     </tr>
 
@@ -562,8 +573,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="31"
-                                    class="link-to-prism">src/app/pages/dashboard/pie-chart/pie-chart.component.ts:31</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="39"
+                                    class="link-to-prism">src/app/pages/dashboard/pie-chart/pie-chart.component.ts:39</a></div>
                         </td>
                     </tr>
 
@@ -599,8 +610,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="61"
-                                    class="link-to-prism">src/app/pages/dashboard/pie-chart/pie-chart.component.ts:61</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="72"
+                                    class="link-to-prism">src/app/pages/dashboard/pie-chart/pie-chart.component.ts:72</a></div>
                         </td>
                     </tr>
 
@@ -665,13 +676,13 @@
             </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                        <i>Type : </i>        <code><a href="../interfaces/CanvasChart.html" target="_self" >CanvasChart</a></code>
 
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">src/app/pages/dashboard/pie-chart/pie-chart.component.ts:22</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">src/app/pages/dashboard/pie-chart/pie-chart.component.ts:26</a></div>
                         </td>
                     </tr>
 
@@ -691,13 +702,13 @@
             </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                        <i>Type : </i>        <code><a href="../interfaces/ChartOptions.html" target="_self" >ChartOptions</a></code>
 
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">src/app/pages/dashboard/pie-chart/pie-chart.component.ts:23</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">src/app/pages/dashboard/pie-chart/pie-chart.component.ts:27</a></div>
                         </td>
                     </tr>
 
@@ -708,21 +719,22 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="isButtonVisible"></a>
+                    <a name="initialChartOptions"></a>
                     <span class="name">
-                        <span ><b>isButtonVisible</b></span>
-                        <a href="#isButtonVisible"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>initialChartOptions</b></span>
+                        <a href="#initialChartOptions"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Default value : </i><code>false</code>
+                        <i>Type : </i>        <code><a href="../interfaces/ChartOptions.html" target="_self" >ChartOptions</a></code>
+
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">src/app/pages/dashboard/pie-chart/pie-chart.component.ts:26</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">src/app/pages/dashboard/pie-chart/pie-chart.component.ts:28</a></div>
                         </td>
                     </tr>
 
@@ -733,14 +745,20 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="isDrilldown"></a>
+                    <a name="isDrillDown"></a>
                     <span class="name">
                             <span class="modifier">Protected</span>
-                        <span ><b>isDrilldown</b></span>
-                        <a href="#isDrilldown"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>isDrillDown</b></span>
+                        <a href="#isDrillDown"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
                 <tr>
                     <td class="col-md-4">
                         <i>Default value : </i><code>false</code>
@@ -748,7 +766,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">src/app/pages/dashboard/pie-chart/pie-chart.component.ts:25</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">src/app/pages/dashboard/pie-chart/pie-chart.component.ts:30</a></div>
                         </td>
                     </tr>
 
@@ -775,7 +793,33 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">src/app/pages/dashboard/pie-chart/pie-chart.component.ts:24</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">src/app/pages/dashboard/pie-chart/pie-chart.component.ts:31</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="totalAthletes"></a>
+                    <span class="name">
+                        <span ><b>totalAthletes</b></span>
+                        <a href="#totalAthletes"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>number | undefined</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">src/app/pages/dashboard/pie-chart/pie-chart.component.ts:29</a></div>
                         </td>
                     </tr>
 
@@ -791,10 +835,14 @@
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit, OnDestroy } from &#x27;@angular/core&#x27;;
 import { CommonModule } from &#x27;@angular/common&#x27;;
 import { RouterOutlet } from &#x27;@angular/router&#x27;;
-import { CanvasJSAngularChartsModule } from &#x27;@canvasjs/angular-charts&#x27;;
+import {CanvasJSAngularChartsModule} from &#x27;@canvasjs/angular-charts&#x27;;
 import { MedalsService } from &#x27;../../../core/services/medals.service&#x27;;
 import { Subscription } from &#x27;rxjs&#x27;;
 import {StatisticsService} from &quot;../../../core/services/statistics.service&quot;;
+import {CanvasChart} from &quot;../../../core/models/Charts/CanvasChart&quot;;
+import {ChartOptions} from &quot;../../../core/models/Charts/ChartOptions&quot;;
+import {isCanvasChart} from &quot;../../../core/models/Charts/typeGuards&quot;;
+import {SharedService} from &quot;../../../core/services/shared.service&quot;;
 
 
 @Component({
@@ -806,34 +854,37 @@ import {StatisticsService} from &quot;../../../core/services/statistics.service&
     CanvasJSAngularChartsModule
   ],
   templateUrl: &#x27;./pie-chart.component.html&#x27;,
-  styleUrls: [&#x27;./pie-chart.component.scss&#x27;] // Corrected typo from styleUrl to styleUrls
+  styleUrls: [&#x27;./pie-chart.component.scss&#x27;]
 })
 export class PieChartComponent implements OnInit, OnDestroy {
-  chart: any;
-  chartOptions: any;
+  chart!: CanvasChart;
+  chartOptions!: ChartOptions;
+  initialChartOptions!: ChartOptions;
+  totalAthletes: number | undefined;
+  protected isDrillDown: boolean &#x3D; false;
   private subscription: Subscription | undefined;
-  protected isDrilldown &#x3D; false;
-  isButtonVisible &#x3D; false;
+
   constructor(
     private medalsService: MedalsService,
-    private statisticsService: StatisticsService) {}
+    private statisticsService: StatisticsService,
+    private sharedService: SharedService) {
+  }
 
   ngOnInit(): void {
     this.subscription &#x3D; this.medalsService.getParticipationData().subscribe(dataPoints &#x3D;&gt; {
-      this.chartOptions &#x3D; {
-        animationEnabled: true,
-        title: {
-          text: &quot;Medals per Country&quot;
-        },
+      this.initialChartOptions &#x3D; {
+        animationEnabled: false,
+        explodeOnClick: false,
         data: [{
           type: &quot;pie&quot;,
           startAngle: -90,
           indexLabel: &quot;{name}: {y}&quot;,
           yValueFormatString: &quot;#,###&quot;,
           dataPoints: dataPoints,
-          click: this.drilldownHandler.bind(this)
+          click: this.drillDownHandler.bind(this)
         }]
       };
+      this.chartOptions &#x3D; { ...this.initialChartOptions }; // Make a copy of the initial options
       this.renderChart(this.chartOptions);
     });
   }
@@ -844,8 +895,12 @@ export class PieChartComponent implements OnInit, OnDestroy {
     }
   }
 
-  getChartInstance(chart: object) {
-    this.chart &#x3D; chart;
+  getChartInstance(chart: unknown) {
+    if (isCanvasChart(chart)) {
+      this.chart &#x3D; chart;
+    } else {
+      console.error(&#x27;Invalid chart instance:&#x27;, chart);
+    }
   }
 
   renderChart(options: any) {
@@ -853,28 +908,49 @@ export class PieChartComponent implements OnInit, OnDestroy {
     this.chart.render();
   }
 
-  drilldownHandler(e: any) {
-    if (!this.isDrilldown) {
-      this.isDrilldown &#x3D; true;
+  /**
+   * @description
+   * @param e
+   */
+  drillDownHandler(e: any) {
+    console.log(e);
+    if (!this.isDrillDown) {
+      this.isDrillDown &#x3D; true;
       const country &#x3D; e.dataPoint.name;
+      const medals &#x3D; e.dataPoint.y;
+      this.sharedService.changeDescription(&#x60;${country}&#x60;);
+      this.sharedService.getMedalsNumber(&#x60;${medals}&#x60;);
+      // this.sharedService.getAthletesNumber();
+
       this.subscription &#x3D; this.statisticsService.getCountryParticipationDetails(country).subscribe(details &#x3D;&gt; {
         this.chartOptions &#x3D; {
           animationEnabled: true,
-          title: {
-            text: &#x60;Medals per Year for ${country}&#x60;
-          },
+          explodeOnClick: false,
           data: [{
             type: &quot;column&quot;,
             dataPoints: details
           }]
         };
         this.renderChart(this.chartOptions);
+
+        this.statisticsService.getCountryTotalAthletes().subscribe(athleteData &#x3D;&gt; {
+          const countryAthletes &#x3D; athleteData.find(item &#x3D;&gt; item.country &#x3D;&#x3D;&#x3D; country);
+          if (countryAthletes) {
+            this.sharedService.getAthletesNumber(&#x60;${countryAthletes.athletes}&#x60;); // Modification ici
+          }
+        });
+
       });
     }
   }
 
+  /**
+   * @description Get the previous pie chart infos as the descriptions and render it again.
+   */
   handleBackClick() {
-    this.isDrilldown &#x3D; false;
+    this.isDrillDown &#x3D; false;
+    this.chartOptions &#x3D; { ...this.initialChartOptions }; // Reset to initial options
+    this.sharedService.resetDescription();
     this.renderChart(this.chartOptions);
   }
 
@@ -884,8 +960,8 @@ export class PieChartComponent implements OnInit, OnDestroy {
 
     <div class="tab-pane fade " id="templateData">
         <pre class="line-numbers"><code class="language-html">&lt;div&gt;
-  &lt;canvasjs-chart [options]&#x3D;&quot;chartOptions&quot; (chartInstance)&#x3D;&quot;getChartInstance($event)&quot; [styles]&#x3D;&quot;{width: &#x27;100%&#x27;, height: &#x27;360px&#x27;}&quot;&gt;&lt;/canvasjs-chart&gt;
-  &lt;button [ngClass]&#x3D;&quot;&#x27;backButton&#x27;&quot; *ngIf&#x3D;&quot;isDrilldown&quot; (click)&#x3D;&quot;handleBackClick()&quot;&gt;Back&lt;/button&gt;
+  &lt;canvasjs-chart [options]&#x3D;&quot;chartOptions&quot; (chartInstance)&#x3D;&quot;getChartInstance($event)&quot; [styles]&#x3D;&quot;{width: &#x27;60%&#x27;, height: &#x27;360px&#x27;, margin: &#x27;auto&#x27;}&quot;&gt;&lt;/canvasjs-chart&gt;
+  &lt;button [ngClass]&#x3D;&quot;&#x27;backButton&#x27;&quot; *ngIf&#x3D;&quot;isDrillDown&quot; (click)&#x3D;&quot;handleBackClick()&quot;&gt;Back&lt;/button&gt;
 &lt;/div&gt;
 </code></pre>
     </div>
@@ -906,6 +982,7 @@ export class PieChartComponent implements OnInit, OnDestroy {
   right: 10px;
   cursor: pointer;
 }
+
 </code></pre>
     </div>
 
@@ -934,8 +1011,8 @@ export class PieChartComponent implements OnInit, OnDestroy {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><div>  <canvasjs-chart [options]="chartOptions" (chartInstance)="getChartInstance($event)" [styles]="{width: \'100%\', height: \'360px\'}"></canvasjs-chart>  <button [ngClass]="\'backButton\'" *ngIf="isDrilldown" (click)="handleBackClick()">Back</button></div></div>'
-    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'DashboardComponent', 'selector': 'app-dashboard'},{'name': 'DetailComponent', 'selector': 'app-detail'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'NotFoundComponent', 'selector': 'app-not-found'},{'name': 'PieChartComponent', 'selector': 'app-pie-chart'}];
+        var COMPONENT_TEMPLATE = '<div><div>  <canvasjs-chart [options]="chartOptions" (chartInstance)="getChartInstance($event)" [styles]="{width: \'60%\', height: \'360px\', margin: \'auto\'}"></canvasjs-chart>  <button [ngClass]="\'backButton\'" *ngIf="isDrillDown" (click)="handleBackClick()">Back</button></div></div>'
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'DashboardComponent', 'selector': 'app-dashboard'},{'name': 'NotFoundComponent', 'selector': 'app-not-found'},{'name': 'PieChartComponent', 'selector': 'app-pie-chart'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'PieChartComponent'};
 </script>
