@@ -56,4 +56,54 @@ export class OlympicService {
       );
     }
   }
+
+  getTotalOlympics(): Observable<number> {
+    return this.getOlympics().pipe(
+      map((data) => {
+        //The set type is here to guarantee the element's unicity, but it's not necessary here
+        const years = new Set<number>();
+        data.forEach((country: any) => {
+          country.participations.forEach((participation: any) => {
+            years.add(participation.year);
+          });
+        });
+        return years.size;
+      })
+    );
+  }
+
+  // Récupérer le nombre total de pays participants
+  getTotalCountries(): Observable<number> {
+    return this.getOlympics().pipe(
+      map((data) => data.length)
+    );
+  }
+
+  // Récupérer le nombre de participations par pays
+  getCountryParticipationDetails(countryName: string): Observable<{ label: string, y: number }[]> {
+    return this.getOlympics().pipe(
+      map((data: Olympic[]) => {
+        const country = data.find(c => c.country === countryName);
+        return country ? country.participations.map((participation: Participation) => ({
+          label: participation.year.toString(),
+          y: participation.medalsCount
+        })) : [];
+      })
+    );
+  }
+
+  // Récupérer le nombre total d'athlètes par pays
+  getCountryTotalAthletes(): Observable<{ country: string, athletes: number }[]> {
+    return this.getOlympics().pipe(
+      map((data: Olympic[]) => {
+        return data.map(country => {
+          const totalAthletes = country.participations.reduce((sum: number, participation: Participation) => sum + participation.athleteCount, 0);
+          return {
+            country: country.country,
+            athletes: totalAthletes
+          };
+        });
+      })
+    );
+  }
 }

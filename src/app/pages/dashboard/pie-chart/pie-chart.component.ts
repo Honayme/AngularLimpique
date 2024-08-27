@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import {CanvasJSAngularChartsModule} from '@canvasjs/angular-charts';
 import { Subscription } from 'rxjs';
-import {StatisticsService} from "../../../core/services/statistics.service";
 import {CanvasChart} from "../../../core/models/Charts/CanvasChart";
 import {ChartOptions} from "../../../core/models/Charts/ChartOptions";
 import {isCanvasChart} from "../../../core/models/Charts/typeGuards";
@@ -32,7 +31,6 @@ export class PieChartComponent implements OnInit, OnDestroy {
 
   constructor(
     private olympicService: OlympicService,
-    private statisticsService: StatisticsService,
     private sharedService: SharedService) {
   }
 
@@ -95,7 +93,7 @@ export class PieChartComponent implements OnInit, OnDestroy {
       this.sharedService.getMedalsNumber(`${medals}`);
       // this.sharedService.getAthletesNumber();
 
-      this.subscription = this.statisticsService.getCountryParticipationDetails(country).subscribe(details => {
+      this.subscription = this.olympicService.getCountryParticipationDetails(country).subscribe(details => {
         this.chartOptions = {
           animationEnabled: true,
           explodeOnClick: false,
@@ -109,7 +107,7 @@ export class PieChartComponent implements OnInit, OnDestroy {
         };
         this.renderChart(this.chartOptions);
 
-        this.statisticsService.getCountryTotalAthletes().subscribe(athleteData => {
+        this.olympicService.getCountryTotalAthletes().subscribe(athleteData => {
           const countryAthletes = athleteData.find(item => item.country === country);
           if (countryAthletes) {
             this.sharedService.getAthletesNumber(`${countryAthletes.athletes}`); // Modification ici

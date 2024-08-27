@@ -1,5 +1,4 @@
 import {Component, OnInit, OnDestroy} from '@angular/core';
-import {StatisticsService} from "../../core/services/statistics.service";
 import {OlympicService} from "../../core/services/olympic.service";
 import {PieChartComponent} from "./pie-chart/pie-chart.component";
 import {Subscription} from "rxjs";
@@ -29,7 +28,6 @@ export class DashboardComponent implements OnInit, OnDestroy {
 
 
   constructor(
-    private statisticsService: StatisticsService,
     private olympicService: OlympicService,
     private sharedService: SharedService) {
   }
@@ -41,12 +39,12 @@ export class DashboardComponent implements OnInit, OnDestroy {
     });
     this.subscriptions.push(olympicsSub);
 
-    const totalOlympicsSub = this.statisticsService.getTotalOlympics().subscribe(total => {
+    const totalOlympicsSub = this.olympicService.getTotalOlympics().subscribe(total => {
       this.totalOlympics = total;
     });
     this.subscriptions.push(totalOlympicsSub);
 
-    const totalCountriesSub = this.statisticsService.getTotalCountries().subscribe(total => {
+    const totalCountriesSub = this.olympicService.getTotalCountries().subscribe(total => {
       this.totalCountries = total;
     });
     this.subscriptions.push(totalCountriesSub);
