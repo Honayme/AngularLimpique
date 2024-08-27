@@ -1,7 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import {BehaviorSubject, Observable, of, switchMap} from 'rxjs';
-import { catchError, tap } from 'rxjs/operators';
+import {catchError, map, tap} from 'rxjs/operators';
+import {Olympic} from "../models/Olympic";
+import {Participation} from "../models/Participation";
 
 @Injectable({
   providedIn: 'root',
@@ -24,6 +26,20 @@ export class OlympicService {
         // can be useful to end loading state and let the user know something went wrong
         this.olympics$.next(null);
         return caught;
+      })
+    );
+  }
+
+  getParticipationData(): Observable<{ y: number, name: string }[]> {
+    return this.getOlympics().pipe(
+      map((data: Olympic[]) => {
+        return data.map(country => {
+          const totalMedals = country.participations.reduce((sum: number, participation: Participation) => sum + participation.medalsCount, 0);
+          return {
+            y: totalMedals,
+            name: country.country
+          };
+        });
       })
     );
   }

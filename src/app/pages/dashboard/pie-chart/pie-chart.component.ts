@@ -2,13 +2,13 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import {CanvasJSAngularChartsModule} from '@canvasjs/angular-charts';
-import { MedalsService } from '../../../core/services/medals.service';
 import { Subscription } from 'rxjs';
 import {StatisticsService} from "../../../core/services/statistics.service";
 import {CanvasChart} from "../../../core/models/Charts/CanvasChart";
 import {ChartOptions} from "../../../core/models/Charts/ChartOptions";
 import {isCanvasChart} from "../../../core/models/Charts/typeGuards";
 import {SharedService} from "../../../core/services/shared.service";
+import {OlympicService} from "../../../core/services/olympic.service";
 
 
 @Component({
@@ -31,13 +31,13 @@ export class PieChartComponent implements OnInit, OnDestroy {
   private subscription: Subscription | undefined;
 
   constructor(
-    private medalsService: MedalsService,
+    private olympicService: OlympicService,
     private statisticsService: StatisticsService,
     private sharedService: SharedService) {
   }
 
   ngOnInit(): void {
-    this.subscription = this.medalsService.getParticipationData().subscribe(dataPoints => {
+    this.subscription = this.olympicService.getParticipationData().subscribe(dataPoints => {
       this.initialChartOptions = {
         animationEnabled: false,
         explodeOnClick: false,
