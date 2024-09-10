@@ -135,25 +135,11 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                    <span class="modifier">Private</span>
-                                <a href="#athletesNumberSource" >athletesNumberSource</a>
-                            </li>
-                            <li>
-                                <a href="#currentAthletesNumber" >currentAthletesNumber</a>
-                            </li>
-                            <li>
-                                <a href="#currentDescription" >currentDescription</a>
-                            </li>
-                            <li>
-                                <a href="#currentMedalsNumber" >currentMedalsNumber</a>
+                                <a href="#sharedData$" >sharedData$</a>
                             </li>
                             <li>
                                     <span class="modifier">Private</span>
-                                <a href="#descriptionSource" >descriptionSource</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Private</span>
-                                <a href="#medalsNumberSource" >medalsNumberSource</a>
+                                <a href="#sharedDataSource" >sharedDataSource</a>
                             </li>
                         </ul>
                     </td>
@@ -168,16 +154,10 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                <a href="#changeDescription" >changeDescription</a>
+                                <a href="#resetSharedData" >resetSharedData</a>
                             </li>
                             <li>
-                                <a href="#getAthletesNumber" >getAthletesNumber</a>
-                            </li>
-                            <li>
-                                <a href="#getMedalsNumber" >getMedalsNumber</a>
-                            </li>
-                            <li>
-                                <a href="#resetDescription" >resetDescription</a>
+                                <a href="#updateSharedData" >updateSharedData</a>
                             </li>
                         </ul>
                     </td>
@@ -201,24 +181,24 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="changeDescription"></a>
+                    <a name="resetSharedData"></a>
                     <span class="name">
-                        <span ><b>changeDescription</b></span>
-                        <a href="#changeDescription"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>resetSharedData</b></span>
+                        <a href="#resetSharedData"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>changeDescription(description: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+<code>resetSharedData()</code>
                 </td>
             </tr>
 
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="16"
-                                    class="link-to-prism">src/app/core/services/shared.service.ts:16</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="25"
+                                    class="link-to-prism">src/app/core/services/shared.service.ts:25</a></div>
                         </td>
                     </tr>
 
@@ -226,40 +206,10 @@
             <tr>
                 <td class="col-md-4">
 
-                            <div class="io-description">
-                                <b>Parameters :</b>
-                                
-                                <table class="params">
-                                    <thead>
-                                        <tr>
-                                            <td>Name</td>
-                                                <td>Type</td>
-                                            <td>Optional</td>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                                <td>description</td>
-                                            <td>
-                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-                                            </td>
-
-                                            <td>
-                                                    No
-                                            </td>
-
-
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
                         <div class="io-description">
                             <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
 
                         </div>
-                            <div class="io-description">
-                                
-                            </div>
                 </td>
             </tr>
         </tbody>
@@ -268,83 +218,16 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="getAthletesNumber"></a>
+                    <a name="updateSharedData"></a>
                     <span class="name">
-                        <span ><b>getAthletesNumber</b></span>
-                        <a href="#getAthletesNumber"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>updateSharedData</b></span>
+                        <a href="#updateSharedData"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>getAthletesNumber(athletesNumber: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
-                </td>
-            </tr>
-
-
-                    <tr>
-                        <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="24"
-                                    class="link-to-prism">src/app/core/services/shared.service.ts:24</a></div>
-                        </td>
-                    </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                            <div class="io-description">
-                                <b>Parameters :</b>
-                                
-                                <table class="params">
-                                    <thead>
-                                        <tr>
-                                            <td>Name</td>
-                                                <td>Type</td>
-                                            <td>Optional</td>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                                <td>athletesNumber</td>
-                                            <td>
-                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-                                            </td>
-
-                                            <td>
-                                                    No
-                                            </td>
-
-
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        <div class="io-description">
-                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
-
-                        </div>
-                            <div class="io-description">
-                                
-                            </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="getMedalsNumber"></a>
-                    <span class="name">
-                        <span ><b>getMedalsNumber</b></span>
-                        <a href="#getMedalsNumber"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-<code>getMedalsNumber(medalsNumber: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+<code>updateSharedData(sharedData: <a href="../interfaces/SharedData.html" target="_self">SharedData</a>)</code>
                 </td>
             </tr>
 
@@ -373,9 +256,9 @@
                                     </thead>
                                     <tbody>
                                         <tr>
-                                                <td>medalsNumber</td>
+                                                <td>sharedData</td>
                                             <td>
-                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                                            <code><a href="../interfaces/SharedData.html" target="_self" >SharedData</a></code>
                                             </td>
 
                                             <td>
@@ -398,43 +281,6 @@
             </tr>
         </tbody>
     </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="resetDescription"></a>
-                    <span class="name">
-                        <span ><b>resetDescription</b></span>
-                        <a href="#resetDescription"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-<code>resetDescription()</code>
-                </td>
-            </tr>
-
-
-                    <tr>
-                        <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="28"
-                                    class="link-to-prism">src/app/core/services/shared.service.ts:28</a></div>
-                        </td>
-                    </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                        <div class="io-description">
-                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
-
-                        </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
 </section>
             <section data-compodoc="block-properties">
     
@@ -445,167 +291,57 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="athletesNumberSource"></a>
+                    <a name="sharedData$"></a>
                     <span class="name">
-                            <span class="modifier">Private</span>
-                        <span ><b>athletesNumberSource</b></span>
-                        <a href="#athletesNumberSource"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>sharedData$</b></span>
+                        <a href="#sharedData$"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Type : </i>    <code>BehaviorSubject&lt;string&gt;</code>
+                        <i>Default value : </i><code>this.sharedDataSource.asObservable()</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/core/services/shared.service.ts:17</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="sharedDataSource"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>sharedDataSource</b></span>
+                        <a href="#sharedDataSource"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/SharedData.html" target="_self" >BehaviorSubject&lt;SharedData&gt;</a></code>
 
                     </td>
                 </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Default value : </i><code>new BehaviorSubject&lt;string&gt;(&#x27;&#x27;)</code>
+                        <i>Default value : </i><code>new BehaviorSubject&lt;SharedData&gt;({
+    description: &#x27;&#x27;,
+    medalsNumber: &#x27;&#x27;,
+    athletesNumber: &#x27;&#x27;
+  })</code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
                                 <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">src/app/core/services/shared.service.ts:10</a></div>
-                        </td>
-                    </tr>
-
-
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="currentAthletesNumber"></a>
-                    <span class="name">
-                        <span ><b>currentAthletesNumber</b></span>
-                        <a href="#currentAthletesNumber"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <i>Default value : </i><code>this.athletesNumberSource.asObservable()</code>
-                    </td>
-                </tr>
-                    <tr>
-                        <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/core/services/shared.service.ts:14</a></div>
-                        </td>
-                    </tr>
-
-
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="currentDescription"></a>
-                    <span class="name">
-                        <span ><b>currentDescription</b></span>
-                        <a href="#currentDescription"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <i>Default value : </i><code>this.descriptionSource.asObservable()</code>
-                    </td>
-                </tr>
-                    <tr>
-                        <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/app/core/services/shared.service.ts:12</a></div>
-                        </td>
-                    </tr>
-
-
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="currentMedalsNumber"></a>
-                    <span class="name">
-                        <span ><b>currentMedalsNumber</b></span>
-                        <a href="#currentMedalsNumber"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <i>Default value : </i><code>this.medalsNumberSource.asObservable()</code>
-                    </td>
-                </tr>
-                    <tr>
-                        <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">src/app/core/services/shared.service.ts:13</a></div>
-                        </td>
-                    </tr>
-
-
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="descriptionSource"></a>
-                    <span class="name">
-                            <span class="modifier">Private</span>
-                        <span ><b>descriptionSource</b></span>
-                        <a href="#descriptionSource"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <i>Type : </i>    <code>BehaviorSubject&lt;string&gt;</code>
-
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <i>Default value : </i><code>new BehaviorSubject&lt;string&gt;(&#x27;&#x27;)</code>
-                    </td>
-                </tr>
-                    <tr>
-                        <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="8" class="link-to-prism">src/app/core/services/shared.service.ts:8</a></div>
-                        </td>
-                    </tr>
-
-
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="medalsNumberSource"></a>
-                    <span class="name">
-                            <span class="modifier">Private</span>
-                        <span ><b>medalsNumberSource</b></span>
-                        <a href="#medalsNumberSource"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <i>Type : </i>    <code>BehaviorSubject&lt;string&gt;</code>
-
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <i>Default value : </i><code>new BehaviorSubject&lt;string&gt;(&#x27;&#x27;)</code>
-                    </td>
-                </tr>
-                    <tr>
-                        <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="9" class="link-to-prism">src/app/core/services/shared.service.ts:9</a></div>
                         </td>
                     </tr>
 
@@ -620,35 +356,34 @@
     <div class="tab-pane fade  tab-source-code" id="source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@angular/core&#x27;;
 import { BehaviorSubject } from &#x27;rxjs&#x27;;
+import {SharedData} from &quot;../models/SharedData&quot;;
 
 @Injectable({
   providedIn: &#x27;root&#x27;
 })
 export class SharedService {
-  private descriptionSource : BehaviorSubject&lt;string&gt; &#x3D; new BehaviorSubject&lt;string&gt;(&#x27;&#x27;);
-  private medalsNumberSource: BehaviorSubject&lt;string&gt; &#x3D; new BehaviorSubject&lt;string&gt;(&#x27;&#x27;);
-  private athletesNumberSource: BehaviorSubject&lt;string&gt; &#x3D; new BehaviorSubject&lt;string&gt;(&#x27;&#x27;);
+  // Un seul BehaviorSubject pour toutes les données partagées
+  private sharedDataSource: BehaviorSubject&lt;SharedData&gt; &#x3D; new BehaviorSubject&lt;SharedData&gt;({
+    description: &#x27;&#x27;,
+    medalsNumber: &#x27;&#x27;,
+    athletesNumber: &#x27;&#x27;
+  });
 
-  currentDescription &#x3D; this.descriptionSource.asObservable();
-  currentMedalsNumber &#x3D; this.medalsNumberSource.asObservable();
-  currentAthletesNumber &#x3D; this.athletesNumberSource.asObservable();
+  // Observable pour permettre aux composants de s&#x27;abonner aux données partagées
+  sharedData$ &#x3D; this.sharedDataSource.asObservable();
 
-  changeDescription(description: string): void {
-    this.descriptionSource.next(description);
+  // Méthode pour mettre à jour les données partagées
+  updateSharedData(sharedData: SharedData): void {
+    this.sharedDataSource.next(sharedData);
   }
 
-  getMedalsNumber(medalsNumber: string): void {
-    this.medalsNumberSource.next(medalsNumber);
-  }
-
-  getAthletesNumber(athletesNumber: string): void {
-    this.athletesNumberSource.next(athletesNumber);
-  }
-
-  resetDescription() {
-    this.descriptionSource.next(&#x27;&#x27;);
-    this.medalsNumberSource.next(&#x27;&#x27;);
-    this.athletesNumberSource.next(&#x27;&#x27;);
+  // Méthode pour réinitialiser les données partagées
+  resetSharedData(): void {
+    this.sharedDataSource.next({
+      description: &#x27;&#x27;,
+      medalsNumber: &#x27;&#x27;,
+      athletesNumber: &#x27;&#x27;
+    });
   }
 }
 </code></pre>

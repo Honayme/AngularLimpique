@@ -128,13 +128,47 @@
 <p>If you wish to contribute, please fork the repository and submit a pull request.</p>
 <h2>License</h2>
 <p>This project is licensed under the MIT License.</p>
-<b>Example :</b><div><pre class="line-numbers"><code class="language-none">
-### Notes
-
-- Assurez-vous que `compodoc.json` est bien créé à la racine de votre projet pour que les configurations personnalisées soient prises en compte.
-- Le script `compodoc` dans votre `package.json` est déjà correctement configuré pour démarrer le serveur de documentation sur le port 4000 et générer les fichiers de documentation dans le répertoire `documentation`.
-
-Avec ces instructions, vous devriez pouvoir générer automatiquement une documentation technique pour votre projet Angular et la rendre accessible via une URL spécifique.</code></pre></div>
+<h3>Notes</h3>
+<ul>
+<li>Assurez-vous que <code>compodoc.json</code> est bien créé à la racine de votre projet pour que les configurations personnalisées soient prises en compte.</li>
+<li>Le script <code>compodoc</code> dans votre <code>package.json</code> est déjà correctement configuré pour démarrer le serveur de documentation sur le port 4000 et générer les fichiers de documentation dans le répertoire <code>documentation</code>.</li>
+</ul>
+<p>Avec ces instructions, vous devriez pouvoir générer automatiquement une documentation technique pour votre projet Angular et la rendre accessible via une URL spécifique.</p>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-none">    src/
+    └── app/
+        ├── core/
+        │   └── models/
+        │       ├── Charts/
+        │       │   └── (Fichiers relatifs aux graphiques)
+        │       ├── Olympic.ts
+        │       └── Participation.ts
+        ├── services/
+        │   ├── medals.service.ts
+        │   ├── olympic.service.ts
+        │   ├── shared.service.ts
+        │   ├── statistics.service.ts
+        │   └── *.spec.ts (Tests unitaires pour chaque service)
+        ├── pages/
+        │   ├── dashboard/
+        │   │   ├── pie-chart/
+        │   │   │   └── (Composants pour les graphiques en camembert)
+        │   │   ├── dashboard.component.html
+        │   │   ├── dashboard.component.scss
+        │   │   ├── dashboard.component.ts
+        │   │   └── *.spec.ts (Tests unitaires pour le composant dashboard)
+        │   └── not-found/
+        │       └── (Composants pour la page 404)
+        ├── app.component.*
+        │   └── (Fichiers relatifs au composant racine de l&#39;application)
+        ├── app.module.ts
+        ├── app-routing.module.ts
+        ├── assets/
+        │   ├── mock/
+        │   │   └── (Données simulées pour les tests)
+        │   └── .gitkeep
+        └── environments/
+            ├── environment.prod.ts
+            └── environment.ts</code></pre></div>
 
 
 

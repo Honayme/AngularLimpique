@@ -105,16 +105,10 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             </div>
                             <ul class="links collapse " ${ isNormalMode ? 'id="injectables-links"' : 'id="xs-injectables-links"' }>
                                 <li class="link">
-                                    <a href="injectables/MedalsService.html" data-type="entity-link" >MedalsService</a>
-                                </li>
-                                <li class="link">
                                     <a href="injectables/OlympicService.html" data-type="entity-link" >OlympicService</a>
                                 </li>
                                 <li class="link">
                                     <a href="injectables/SharedService.html" data-type="entity-link" >SharedService</a>
-                                </li>
-                                <li class="link">
-                                    <a href="injectables/StatisticsService.html" data-type="entity-link" >StatisticsService</a>
                                 </li>
                             </ul>
                         </li>
@@ -140,6 +134,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             </li>
                             <li class="link">
                                 <a href="interfaces/Participation.html" data-type="entity-link" >Participation</a>
+                            </li>
+                            <li class="link">
+                                <a href="interfaces/SharedData.html" data-type="entity-link" >SharedData</a>
                             </li>
                         </ul>
                     </li>
