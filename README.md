@@ -75,7 +75,49 @@ If you wish to contribute, please fork the repository and submit a pull request.
 
 This project is licensed under the MIT License.
 
+
 ### Notes
 
 - Assurez-vous que `compodoc.json` est bien créé à la racine de votre projet pour que les configurations personnalisées soient prises en compte.
 - Le script `compodoc` dans votre `package.json` est déjà correctement configuré pour démarrer le serveur de documentation sur le port 4000 et générer les fichiers de documentation dans le répertoire `documentation`.
+
+Avec ces instructions, vous devriez pouvoir générer automatiquement une documentation technique pour votre projet Angular et la rendre accessible via une URL spécifique.
+
+
+```
+    src/
+    └── app/
+        ├── core/
+        │   └── models/
+        │       ├── Charts/
+        │       │   └── (Fichiers relatifs aux graphiques)
+        │       ├── Olympic.ts
+        │       └── Participation.ts
+        ├── services/
+        │   ├── medals.service.ts
+        │   ├── olympic.service.ts
+        │   ├── shared.service.ts
+        │   ├── statistics.service.ts
+        │   └── *.spec.ts (Tests unitaires pour chaque service)
+        ├── pages/
+        │   ├── dashboard/
+        │   │   ├── pie-chart/
+        │   │   │   └── (Composants pour les graphiques en camembert)
+        │   │   ├── dashboard.component.html
+        │   │   ├── dashboard.component.scss
+        │   │   ├── dashboard.component.ts
+        │   │   └── *.spec.ts (Tests unitaires pour le composant dashboard)
+        │   └── not-found/
+        │       └── (Composants pour la page 404)
+        ├── app.component.*
+        │   └── (Fichiers relatifs au composant racine de l'application)
+        ├── app.module.ts
+        ├── app-routing.module.ts
+        ├── assets/
+        │   ├── mock/
+        │   │   └── (Données simulées pour les tests)
+        │   └── .gitkeep
+        └── environments/
+            ├── environment.prod.ts
+            └── environment.ts
+```

@@ -5,6 +5,7 @@ import {Subscription} from "rxjs";
 import {Olympic} from "../../core/models/Olympic";
 import {SharedService} from "../../core/services/shared.service";
 import {CommonModule} from "@angular/common";
+import {SharedData} from "../../core/models/SharedData";
 
 @Component({
   selector: 'app-dashboard',
@@ -14,9 +15,8 @@ import {CommonModule} from "@angular/common";
     CommonModule
   ],
   templateUrl: './dashboard.component.html',
-  styleUrl: './dashboard.component.scss'
+  styleUrls: ['./dashboard.component.scss']
 })
-
 export class DashboardComponent implements OnInit, OnDestroy {
   olympicsData: Olympic | undefined;
   totalOlympics: number = 0;
@@ -26,11 +26,9 @@ export class DashboardComponent implements OnInit, OnDestroy {
   athletesNumber: string = '';
   private subscriptions: Subscription[] = [];
 
-
   constructor(
     private olympicService: OlympicService,
-    private sharedService: SharedService) {
-  }
+    private sharedService: SharedService) { }
 
   ngOnInit(): void {
     const olympicsSub = this.olympicService.getOlympics().subscribe(data => {
@@ -49,23 +47,14 @@ export class DashboardComponent implements OnInit, OnDestroy {
     });
     this.subscriptions.push(totalCountriesSub);
 
-    const country = this.sharedService.currentDescription.subscribe(countryName => {
-      console.log(countryName);
-      this.countryName = countryName;
+    // Abonnement à un seul observable pour récupérer les données partagées
+    const sharedDataSub = this.sharedService.sharedData$.subscribe((sharedData: SharedData) => {
+      console.log('Shared Data:', sharedData);
+      this.countryName = sharedData.description;
+      this.medalsNumber = sharedData.medalsNumber;
+      this.athletesNumber = sharedData.athletesNumber;
     });
-    this.subscriptions.push(country);
-
-    const athletes = this.sharedService.currentAthletesNumber.subscribe(athletesNumber => {
-      console.log(athletesNumber);
-      this.athletesNumber = athletesNumber; // Modification ici
-    });
-    this.subscriptions.push(athletes);
-
-    const medals = this.sharedService.currentMedalsNumber.subscribe(medalsNumber => {
-      console.log(medalsNumber);
-      this.medalsNumber = medalsNumber; // Ajout ici
-    });
-    this.subscriptions.push(medals);
+    this.subscriptions.push(sharedDataSub);
   }
 
   ngOnDestroy(): void {

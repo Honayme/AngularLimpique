@@ -1,33 +1,32 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
+import {SharedData} from "../models/SharedData";
 
 @Injectable({
   providedIn: 'root'
 })
 export class SharedService {
-  private descriptionSource : BehaviorSubject<string> = new BehaviorSubject<string>('');
-  private medalsNumberSource: BehaviorSubject<string> = new BehaviorSubject<string>('');
-  private athletesNumberSource: BehaviorSubject<string> = new BehaviorSubject<string>('');
+  // Un seul BehaviorSubject pour toutes les données partagées
+  private sharedDataSource: BehaviorSubject<SharedData> = new BehaviorSubject<SharedData>({
+    description: '',
+    medalsNumber: '',
+    athletesNumber: ''
+  });
 
-  currentDescription = this.descriptionSource.asObservable();
-  currentMedalsNumber = this.medalsNumberSource.asObservable();
-  currentAthletesNumber = this.athletesNumberSource.asObservable();
+  // Observable pour permettre aux composants de s'abonner aux données partagées
+  sharedData$ = this.sharedDataSource.asObservable();
 
-  changeDescription(description: string): void {
-    this.descriptionSource.next(description);
+  // Méthode pour mettre à jour les données partagées
+  updateSharedData(sharedData: SharedData): void {
+    this.sharedDataSource.next(sharedData);
   }
 
-  getMedalsNumber(medalsNumber: string): void {
-    this.medalsNumberSource.next(medalsNumber);
-  }
-
-  getAthletesNumber(athletesNumber: string): void {
-    this.athletesNumberSource.next(athletesNumber);
-  }
-
-  resetDescription() {
-    this.descriptionSource.next('');
-    this.medalsNumberSource.next('');
-    this.athletesNumberSource.next('');
+  // Méthode pour réinitialiser les données partagées
+  resetSharedData(): void {
+    this.sharedDataSource.next({
+      description: '',
+      medalsNumber: '',
+      athletesNumber: ''
+    });
   }
 }

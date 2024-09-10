@@ -1,3 +1,5 @@
+// @ts-ignore
+
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
@@ -8,6 +10,7 @@ import {ChartOptions} from "../../../core/models/Charts/ChartOptions";
 import {isCanvasChart} from "../../../core/models/Charts/typeGuards";
 import {SharedService} from "../../../core/services/shared.service";
 import {OlympicService} from "../../../core/services/olympic.service";
+import {SharedData} from "../../../core/models/SharedData";
 
 
 @Component({
@@ -25,24 +28,22 @@ export class PieChartComponent implements OnInit, OnDestroy {
   chart!: CanvasChart;
   chartOptions!: ChartOptions;
   initialChartOptions!: ChartOptions;
-  totalAthletes: number | undefined;
   protected isDrillDown: boolean = false;
   private subscription: Subscription | undefined;
 
   constructor(
     private olympicService: OlympicService,
-    private sharedService: SharedService) {
-  }
+    private sharedService: SharedService) { }
 
   ngOnInit(): void {
     this.subscription = this.olympicService.getParticipationData().subscribe(dataPoints => {
       this.initialChartOptions = {
         animationEnabled: false,
         explodeOnClick: false,
-        toolTip:{
+        toolTip: {
           content: "{name} 🏅 {y}",
-          backgroundColor : "#04838F",
-          fontColor : "#FFF",
+          backgroundColor: "#04838F",
+          fontColor: "#FFF",
           cornerRadius: 5,
           fontWeight: "light",
         },
@@ -80,7 +81,7 @@ export class PieChartComponent implements OnInit, OnDestroy {
   }
 
   /**
-   * @description
+   * @description Gère le clic sur un élément du graphique.
    * @param e
    */
   drillDownHandler(e: any) {
@@ -89,43 +90,40 @@ export class PieChartComponent implements OnInit, OnDestroy {
       this.isDrillDown = true;
       const country = e.dataPoint.name;
       const medals = e.dataPoint.y;
-      this.sharedService.changeDescription(`${country}`);
-      this.sharedService.getMedalsNumber(`${medals}`);
-      // this.sharedService.getAthletesNumber();
 
+      // Mettre à jour les données partagées via le service
       this.subscription = this.olympicService.getCountryParticipationDetails(country).subscribe(details => {
         this.chartOptions = {
           animationEnabled: true,
           explodeOnClick: false,
-          toolTip:{
-            enabled: false
-          },
-          data: [{
-            type: "column",
-            dataPoints: details
-          }]
+          toolTip: { enabled: false },
+          data: [{ type: "column", dataPoints: details }]
         };
         this.renderChart(this.chartOptions);
 
         this.olympicService.getCountryTotalAthletes().subscribe(athleteData => {
           const countryAthletes = athleteData.find(item => item.country === country);
           if (countryAthletes) {
-            this.sharedService.getAthletesNumber(`${countryAthletes.athletes}`); // Modification ici
+            const sharedData: SharedData = {
+              description: country,
+              medalsNumber: `${medals}`,
+              athletesNumber: `${countryAthletes.athletes}`
+            };
+            this.sharedService.updateSharedData(sharedData); // Mise à jour avec toutes les données
           }
         });
-
       });
     }
   }
 
   /**
-   * @description Get the previous pie chart infos as the descriptions and render it again.
+   * @description Réinitialise le graphique et les données partagées.
    */
   handleBackClick() {
     this.isDrillDown = false;
     this.chartOptions = { ...this.initialChartOptions }; // Reset to initial options
-    this.sharedService.resetDescription();
+    this.sharedService.resetSharedData();
     this.renderChart(this.chartOptions);
   }
-
 }
+
